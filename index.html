@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f172a;
+      --indigo: #4f46e5;
+      --violet: #7c3aed;
+      --orange: #f97316;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #334155;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ---------- Header / Hero ---------- */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, #312e81 55%, var(--violet) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 110px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), #fbbf24);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #fff;
+      border: 5px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+
+    .tagline {
+      margin-top: 8px;
+      font-size: 1.15rem;
+      color: #fbbf24;
+      font-weight: 500;
+    }
+
+    .location {
+      margin-top: 4px;
+      color: #c7d2fe;
+      font-size: 0.95rem;
+    }
+
+    /* ---------- Layout ---------- */
+    main {
+      max-width: 960px;
+      margin: -70px auto 40px;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 30px 34px;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid currentColor;
+      display: inline-block;
+    }
+
+    #about    { border-top: 6px solid var(--indigo); }
+    #education{ border-top: 6px solid var(--violet); }
+    #skills   { border-top: 6px solid var(--orange); }
+    #hobbies  { border-top: 6px solid #10b981; }
+
+    #about h2     { color: var(--indigo); }
+    #education h2 { color: var(--violet); }
+    #skills h2    { color: var(--orange); }
+    #hobbies h2   { color: #059669; }
+
+    /* ---------- Education timeline ---------- */
+    .timeline {
+      list-style: none;
+      border-left: 3px solid #ddd6fe;
+      padding-left: 24px;
+      margin-left: 6px;
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 15px;
+      height: 15px;
+      background: var(--violet);
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--violet);
+    }
+
+    .timeline strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .timeline span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- Skills & hobbies chips ---------- */
+    .chips {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chips li {
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .chips li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+
+    #skills .chips li {
+      background: #fff7ed;
+      color: #c2410c;
+      border: 2px solid #fdba74;
+    }
+
+    #hobbies .chips li {
+      background: #ecfdf5;
+      color: #047857;
+      border: 2px solid #6ee7b7;
+    }
+
+    /* ---------- Contact ---------- */
+    #contact {
+      background: linear-gradient(135deg, var(--indigo), var(--violet));
+      color: #fff;
+      text-align: center;
+      border: 3px solid #c7d2fe;
+    }
+
+    #contact h2 {
+      color: #fff;
+      border-bottom-color: #fbbf24;
+    }
+
+    #contact a {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 28px;
+      background: #fff;
+      color: var(--indigo);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    #contact a:hover {
+      background: #fbbf24;
+      color: var(--navy);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 10px 20px 40px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="avatar">IH</div>
+    <h1>Ismael Hussein</h1>
+    <p class="tagline">Web Developer &amp; Graphic Designer</p>
+    <p class="location">Nairobi, Kenya</p>
+  </header>
+
+  <main>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hello! I am Ismael Hussein, an experienced mid-level software engineer
+        based in Nairobi, Kenya. I design, build and ship full-stack web
+        applications using PHP, Laravel, React, Next.js and Python, and I deploy
+        them on the cloud. I enjoy turning real business problems into clean,
+        reliable software, and my graphic design background helps me deliver
+        products that work well and look great.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <strong>Diploma in Information Technology</strong>
+          <span>Zetech University &mdash; in progress</span>
+        </li>
+        <li>
+          <strong>Software Engineering Bootcamp</strong>
+          <span>Moringa School</span>
+        </li>
+        <li>
+          <strong>Graphic Design &amp; Advanced Multimedia</strong>
+          <span>Nairobits School</span>
+        </li>
+        <li>
+          <strong>Kenya Certificate of Secondary Education (KCSE)</strong>
+          <span>Ruaraka High School</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="chips">
+        <li>HTML &amp; CSS</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+        <li>PHP</li>
+        <li>Laravel</li>
+        <li>React</li>
+        <li>Next.js</li>
+        <li>Python</li>
+        <li>WordPress &amp; WooCommerce</li>
+        <li>Cloud Hosting &amp; Deployment</li>
+        <li>Git &amp; GitHub</li>
+        <li>Graphic Design</li>
+        <li>UI / UX Design</li>
+      </ul>
+    </section>
+
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <ul class="chips">
+        <li>Playing video games</li>
+        <li>Learning new languages</li>
+        <li>Graphic &amp; digital art</li>
+        <li>Building side projects</li>
+        <li>Exploring new technologies</li>
+        <li>Reading tech blogs</li>
+        <li>Watching tutorials &amp; documentaries</li>
+        <li>Photography</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Let's work together or just say hello!</p>
+      <a href="mailto:ismaelhuz45@gmail.com">ismaelhuz45@gmail.com</a>
+    </section>
+
+  </main>
+
+  <footer>&copy; 2026 Ismael Hussein. All rights reserved.</footer>
+
+</body>
+</html>
